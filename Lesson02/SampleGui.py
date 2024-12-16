@@ -10,7 +10,7 @@ root = Tk()
 # root window title and dimension
 root.title("Python GUI")
 # Set geometry (widthxheight)
-root.geometry('500x300')
+root.geometry('350x100')
 
 # adding menu bar in root window
 # new item in menu bar labelled as 'New'
@@ -18,11 +18,11 @@ root.geometry('500x300')
 menu = Menu(root)
 item = Menu(menu)
 item.add_command(label='New')
-menu.add_cascade(label='File', menu=item)
+menu.add_cascade(label='Menu', menu=item)
 root.config(menu=menu)
  
 # adding a label to the root window
-lbl = Label(root, text = "Are you a Geek?")
+lbl = Label(root, text = "Are you a Geek? Give an answer! ")
 lbl.grid()
  
 # adding Entry Field
@@ -34,7 +34,7 @@ txt.grid(column =1, row =0)
 # button is clicked
 def clicked():
  
-    res = "You wrote" + txt.get()
+    res = "You wrote " + txt.get()
     lbl.configure(text = res)
  
 # button widget with red color text inside
