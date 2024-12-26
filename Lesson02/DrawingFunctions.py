@@ -8,6 +8,10 @@ class Draw:
         self.line_width = 3
         pass
 
+    def update(self):
+        self.canvas.pack()
+        self.canvas.update()
+
     def delete_object(self, object):
         self.canvas.delete(object)
     

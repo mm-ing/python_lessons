@@ -10,7 +10,7 @@ background = 'yellow'
 root = Tk()
  
 # root window title and dimension
-root.title("Graphics")
+root.title("Calendar")
 # Set geometry (width x height)
 root.geometry(f'{canvasWidth}x{canvasHeight}')
 
