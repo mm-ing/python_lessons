@@ -6,7 +6,6 @@ import time
 canvasWidth = 500
 canvasHeight = 500
 background = 'yellow'
-
  
 # create root window    Tk(screenName=None,  baseName=None,  className=’Tk’,  useTk=1)
 root = Tk()
@@ -25,8 +24,6 @@ df = Draw(canvas)
 # generate code ....
 
 canvas.pack()
-
-
 
 # Execute Tkinter
 root.mainloop()

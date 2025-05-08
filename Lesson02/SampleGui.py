@@ -1,6 +1,3 @@
-
-
-
 # Import Module
 from tkinter import *
  
