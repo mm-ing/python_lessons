@@ -1,0 +1,96 @@
+# Import Modules
+from tkinter import *
+import time
+
+canvasWidth = 500
+canvasHeight = 350
+background = 'yellow'
+ 
+# create root window    Tk(screenName=None,  baseName=None,  className=’Tk’,  useTk=1)
+root = Tk()
+ 
+# root window title and dimension
+root.title("Loop App")
+# Set geometry (width x height)
+root.geometry(f'{canvasWidth}x{canvasHeight}')
+
+# Start
+# Label Creation 
+start_lbl = Label(root, text = "Startwert:")
+start_lbl.config(font=("Courier", 16)) # Set font and size 
+start_lbl.grid(row=0, column=0, columnspan=2, padx=10, pady=10, sticky=W)
+
+# TextBox Creation 
+start_input = Text(root, height = 2, width = 20, font=("Courier", 16))   
+start_input.grid(row=0, column=2, columnspan=2, padx=10, pady=10)
+
+# Step
+# Label Creation 
+step_lbl = Label(root, text = "Stepwert:")
+step_lbl.config(font=("Courier", 16)) # Set font and size 
+step_lbl.grid(row=1, column=0, columnspan=2, padx=10, pady=10, sticky=W)
+
+# TextBox Creation 
+step_input = Text(root, height = 2, width = 20, font=("Courier", 16))   
+step_input.grid(row=1, column=2, columnspan=2, padx=10, pady=10)
+
+# End
+# Label Creation 
+end_lbl = Label(root, text = "Endwert:")
+end_lbl.config(font=("Courier", 16)) # Set font and size 
+end_lbl.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky=W)
+
+# TextBox Creation 
+end_input = Text(root, height = 2, width = 20, font=("Courier", 16))   
+end_input.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
+
+# Result label
+# Label Creation
+result_lbl = Label(root, text = "Bitte starten!")
+result_lbl.config(font=("Courier", 28)) # Set font and size
+result_lbl.grid(row=4, column=0, columnspan=7, padx=10, pady=10)
+
+def for_loop():
+    # Get the values from the input fields
+    start = int(start_input.get("1.0", "end-1c"))
+    step = int(step_input.get("1.0", "end-1c"))
+    end = int(end_input.get("1.0", "end-1c")) + 1
+
+    # Perform the for loop
+    for i in range(start, end, step):
+        # Display the current value in the result label        
+        result_lbl.config(text=f"{i}")
+        # Update the GUI
+        root.update()
+        # wait for .5 second
+        time.sleep(.5)
+
+
+def while_loop():
+    # Get the values from the input fields
+    start = int(start_input.get("1.0", "end-1c"))
+    step = int(step_input.get("1.0", "end-1c"))
+    end = int(end_input.get("1.0", "end-1c")) + 1
+
+    # Perform the while loop
+    i = start
+    while i < end:
+        # Display the current value in the result label        
+        result_lbl.config(text=f"{i}")
+        # Update the GUI
+        root.update()
+        i += step
+        # wait for .5 second
+        time.sleep(.5)
+
+# Button Creation
+start_btn = Button(root, text="F O R", command=for_loop)
+start_btn.config(font=("Courier", 16)) # Set font and size
+start_btn.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
+# Button Creation
+start_btn = Button(root, text="W H I L E", command=while_loop)
+start_btn.config(font=("Courier", 16)) # Set font and size
+start_btn.grid(row=3, column=2, columnspan=2, padx=10, pady=10)
+
+root.mainloop() # Execute Tkinter event loop
